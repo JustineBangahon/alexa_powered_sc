@@ -4,8 +4,8 @@ FROM python:3.9-slim
 RUN apt-get update && apt-get install -y \
     libgl1 \
     ffmpeg \
-    libssl-dev \  # Critical fix for libcrypto error
-    libsm6 \ 
+    libssl-dev \
+    libsm6 \
     libxext6 \
     && rm -rf /var/lib/apt/lists/*
 
