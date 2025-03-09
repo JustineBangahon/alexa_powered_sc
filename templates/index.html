@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Surveillance System</title>
+    <style>
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .video-box {
+            width: 640px;
+            height: 480px;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Surveillance Cameras</h1>
+    <div class="video-container" id="container"></div>
+
+    <script>
+        function updateCameras() {
+            fetch('/active_cameras')
+                .then(response => response.json())
+                .then(cameras => {
+                    const container = document.getElementById('container');
+                    container.innerHTML = '';
+                    cameras.forEach(cam => {
+                        const videoBox = document.createElement('img');
+                        videoBox.className = 'video-box';
+                        videoBox.src = `/video_feed/${cam}`;
+                        container.appendChild(videoBox);
+                    });
+                });
+        }
+        
+        setInterval(updateCameras, 1000);
+    </script>
+</body>
+</html>
