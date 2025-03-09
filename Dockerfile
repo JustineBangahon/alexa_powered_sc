@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.10-slim  # Updated to support newer numpy versions
 
 RUN apt-get update && apt-get install -y \
     libgl1 \
@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
