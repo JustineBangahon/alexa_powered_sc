@@ -7,3 +7,4 @@ Jinja2==3.1.6
 flask-ask-sdk==1.0.0
 gunicorn==21.2.0
 python-dotenv==1.0.1
+flask-ask-sdk[flask-ask-verifier]==1.0.0
