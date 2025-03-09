@@ -7,7 +7,7 @@ from ask_sdk_core.utils import is_request_type, is_intent_name
 import threading
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = 'itm4finalproject'
 
 # Initialize camera manager
 camera_manager = CameraManager()
