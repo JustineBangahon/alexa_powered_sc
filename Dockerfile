@@ -18,8 +18,12 @@ WORKDIR /home/appuser/app
 RUN python -m venv venv
 ENV PATH="/home/appuser/app/venv/bin:$PATH"
 
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
+    
 COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade pip && \
+RUN pip install --no-cache-dir --upgrade pip==23.0.1 && \
     pip install --no-cache-dir -r requirements.txt
 
 COPY . .

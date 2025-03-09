@@ -5,7 +5,8 @@ from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.utils import is_request_type, is_intent_name
 # import threading
-
+import werkzeug
+werkzeug.cached_property = werkzeug.utils.cached_property
 app = Flask(__name__)
 app.secret_key = 'itm4finalproject'
 
